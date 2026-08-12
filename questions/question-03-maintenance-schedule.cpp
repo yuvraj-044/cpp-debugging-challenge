@@ -9,9 +9,9 @@ using namespace std;
 int gcd(int a, int b)
 {
     if (b == 0)
-        return b;
+        return a;//always 0 return there should be a 
 
-    return gcd(a % b, b);
+    return gcd( b,a% b);// it should be swapped (euclidian algo)
 }
 
 int lcm(int a, int b)
@@ -41,7 +41,7 @@ void printPrimeFactors(int n)
     {
         while (n % i == 0)
         {
-            cout << n << " ";
+            cout << i << " ";//we wnat the factors soo i
             n = n / i;
         }
     }
