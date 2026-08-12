@@ -5,18 +5,18 @@ using namespace std;
 
 void sortPriorities(int priority[], int n)
 {
-    for (int i = 1; i <= n; i++)
+    for (int i = 1; i < n; i++)//bug was like it was searching one extra indice 
     {
         int key = priority[i];
         int j = i - 1;
 
-        while (j > 0 && priority[j] > key)
+        while (j >= 0 && priority[j] > key)//index 0 was not accesible first 
         {
             priority[j + 1] = priority[j];
             j--;
         }
 
-        priority[j] = key;
+        priority[j+1] = key;//as j will become -1 if i fixed the above error
     }
 }
 
@@ -27,7 +27,7 @@ int removeDuplicatePriorities(int priority[], int n)
 
     int index = 0;
 
-    for (int i = 1; i <= n; i++)
+    for (int i = 1; i < n; i++)//same bug as first (out of bound reading)
     {
         if (priority[i] != priority[index])
         {
