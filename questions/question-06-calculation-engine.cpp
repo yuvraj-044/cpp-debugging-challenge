@@ -12,6 +12,7 @@ class Service
 {
 public:
 
+
     virtual double calculate(
         double amount,
         double rate) = 0;
@@ -54,9 +55,9 @@ template <class T>
 T maximum(T a, T b)
 {
     if (a < b)
-        return a;
+        return b;//b is greater it was a first
 
-    return b;
+    return a;
 }
 
 int main()
@@ -94,9 +95,9 @@ int main()
                     employeeAmount)
              << endl;
     }
-    catch (runtime_error e)
+     catch (const invalid_argument& e)//validate is throwing so we have to catch that 
     {
-        cout << "Runtime error: "
+        cout << "validation error: "
              << e.what() << endl;
     }
 
