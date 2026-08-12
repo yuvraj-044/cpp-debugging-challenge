@@ -18,7 +18,7 @@ int firstPosition(int marks[], int n, int target)
         if (marks[mid] == target)
         {
             answer = mid;
-            low = mid + 1;
+            high = mid - 1;//Bug here it firsly moves right after a match which is for last position
         }
         else if (marks[mid] < target)
         {
@@ -46,7 +46,7 @@ int lastPosition(int marks[], int n, int target)
         if (marks[mid] == target)
         {
             answer = mid;
-            high = mid - 1;
+            low = mid +1;//bughere Moves left after a match which is for first position
         }
         else if (marks[mid] < target)
         {
