@@ -23,7 +23,7 @@ public:
     }
 };
 
-class Student : public Person
+class Student : public virtual Person //ambiguity(diamond inheritance)
 {
 protected:
     int rollNo;
@@ -44,7 +44,7 @@ public:
     }
 };
 
-class Employee : public Person
+class Employee : public virtual Person
 {
 protected:
     int employeeId;
@@ -79,7 +79,8 @@ public:
         int r,
         int id,
         int h)
-        : Student(n, r),
+        : Person(n),//this was missing 
+          Student(n, r),
           Employee(n, id)
     {
         hours = h;
@@ -90,7 +91,8 @@ public:
     void display()
     {
         showPerson();
-        showRole();
+        Student::showRole();
+        Employee::showRole();//confusion happpenig to compiler 
 
         cout << "Working hours: "
              << hours << endl;
