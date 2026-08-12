@@ -3,7 +3,7 @@
 #include <iostream>
 using namespace std;
 
-void sortPriorities(int priority[], int n)
+void sortPriorities(int priority[], int n)//time o(n^2)#overall space 0(1)
 {
     for (int i = 1; i < n; i++)//bug was like it was searching one extra indice 
     {
@@ -20,7 +20,7 @@ void sortPriorities(int priority[], int n)
     }
 }
 
-int removeDuplicatePriorities(int priority[], int n)
+int removeDuplicatePriorities(int priority[], int n)//time o(n) and space o(1)
 {
     if (n == 0)
         return 0;
